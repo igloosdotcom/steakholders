@@ -115,8 +115,8 @@ export default function ReservationModal({
   const waDirectUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(waMessageText)}`;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="relative w-full max-w-2xl bg-stone-950 border border-stone-800 shadow-2xl p-6 sm:p-10 space-y-6 max-h-[92vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
+      <div className="relative w-full max-w-2xl bg-stone-950 border border-stone-800 shadow-2xl p-4 sm:p-8 md:p-10 space-y-5 sm:space-y-6 max-h-[95vh] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-stone-800 pb-4">
           <div>

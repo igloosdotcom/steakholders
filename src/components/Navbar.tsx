@@ -77,16 +77,16 @@ export default function Navbar({ onOpenReserve, cartCount }: NavbarProps) {
         </nav>
 
         {/* Zone 3: 1-2 primary actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <button
             onClick={onOpenReserve}
-            className="relative p-2 text-stone-300 hover:text-white transition-colors"
+            className="relative min-w-[44px] min-h-[44px] flex items-center justify-center text-stone-300 hover:text-white transition-colors"
             title="View Order Selection"
             aria-label="View Order Selection"
           >
             <Beef className="w-5 h-5 text-[#c5a880]" />
             {cartCount > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-[#c5a880] text-[#09090a] text-[9px] font-bold rounded-full flex items-center justify-center tabular-nums">
+              <span className="absolute top-2 right-2 w-4 h-4 bg-[#c5a880] text-[#09090a] text-[9px] font-bold rounded-full flex items-center justify-center tabular-nums shadow">
                 {cartCount}
               </span>
             )}
@@ -94,83 +94,104 @@ export default function Navbar({ onOpenReserve, cartCount }: NavbarProps) {
 
           <button
             onClick={onOpenReserve}
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2 text-[11px] font-medium tracking-[0.2em] uppercase text-[#09090a] bg-[#c5a880] hover:bg-[#d6bc96] transition-all duration-300 whitespace-nowrap"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 min-h-[44px] text-[11px] font-medium tracking-[0.2em] uppercase text-[#09090a] bg-[#c5a880] hover:bg-[#d6bc96] transition-all duration-300 whitespace-nowrap shadow-sm"
           >
             <span>Reserve Box</span>
             <ArrowUpRight className="w-3 h-3" />
           </button>
 
-          {/* Mobile hamburger button */}
+          {/* Mobile hamburger button with 44x44 minimum touch target */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-stone-400 hover:text-white focus:outline-none"
+            className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-stone-400 hover:text-white focus:outline-none"
             aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 text-[#c5a880]" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer with backdrop overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-stone-950 border-b border-stone-800 px-6 py-6 space-y-4">
-          <nav className="flex flex-col gap-4 text-xs font-medium tracking-[0.2em] uppercase text-stone-300">
-            <a
-              href="#story"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-[#c5a880] transition-colors py-1"
-            >
-              Origin &amp; Family
-            </a>
-            <a
-              href="#experience"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-[#c89116] transition-colors py-1"
-            >
-              The Sizzle
-            </a>
-            <a
-              href="#menu"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-[#c5a880] transition-colors py-1"
-            >
-              Weekend Carte
-            </a>
-            <a
-              href="#butcher"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-[#c5a880] transition-colors py-1"
-            >
-              Butcher Cuts (Angus HMC)
-            </a>
-            <a
-              href="#reviews"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-[#c5a880] transition-colors py-1"
-            >
-              Google Reviews
-            </a>
-            <a
-              href="#visit"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-[#c5a880] transition-colors py-1"
-            >
-              Birmingham Hub (Est. London)
-            </a>
-          </nav>
-          <div className="pt-4 border-t border-stone-800">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenReserve();
-              }}
-              className="w-full py-3 text-center text-xs font-medium tracking-[0.2em] uppercase text-[#09090a] bg-[#c5a880] hover:bg-[#d6bc96] transition-colors flex items-center justify-center gap-2"
-            >
-              <span>Reserve Steak &amp; Chips Box</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
+        <>
+          <div
+            className="fixed inset-0 top-[65px] bg-black/70 backdrop-blur-sm z-40 md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          <div className="relative z-50 md:hidden bg-stone-950/98 backdrop-blur-xl border-b border-stone-800 px-6 py-6 space-y-5 max-h-[calc(100dvh-70px)] overflow-y-auto shadow-2xl">
+            <nav className="flex flex-col gap-3.5 text-xs font-medium tracking-[0.2em] uppercase text-stone-300">
+              <a
+                href="#builder"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 px-3 bg-stone-900/60 border border-[#c5a880]/30 text-[#c5a880] flex items-center justify-between transition-colors"
+              >
+                <span>Bespoke Box Builder</span>
+                <span className="text-[10px] font-mono">Customise</span>
+              </a>
+              <a
+                href="#doneness"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
+              >
+                Doneness Dial
+              </a>
+              <a
+                href="#menu"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
+              >
+                Weekend Carte
+              </a>
+              <a
+                href="#story"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
+              >
+                Origin &amp; Family
+              </a>
+              <a
+                href="#experience"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
+              >
+                The Sizzle Studio
+              </a>
+              <a
+                href="#butcher"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
+              >
+                Raw &amp; Pre-Seasoned Cuts
+              </a>
+              <a
+                href="#reviews"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
+              >
+                Google Reviews (4.9★)
+              </a>
+              <a
+                href="#visit"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
+              >
+                Birmingham Hub (B11 3RR)
+              </a>
+            </nav>
+            <div className="pt-3 border-t border-stone-800">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenReserve();
+                }}
+                className="w-full min-h-[46px] text-center text-xs font-medium tracking-[0.2em] uppercase text-[#09090a] bg-[#c5a880] hover:bg-[#d6bc96] transition-colors flex items-center justify-center gap-2 shadow-lg"
+              >
+                <span>Reserve Steak &amp; Chips Box</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );

@@ -48,11 +48,11 @@ export default function VideoExperience({ onOpenReserve }: VideoExperienceProps)
   };
 
   return (
-    <section id="experience" className="py-28 bg-[#09090a] relative border-t border-stone-900">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="experience" className="py-16 sm:py-24 bg-[#09090a] relative border-t border-stone-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <div className="flex items-center justify-center gap-3 text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+          <div className="flex items-center justify-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
             <span>02</span>
             <span className="w-6 h-[1px] bg-[#c5a880]/60" />
             <span>Sensory Craft</span>
@@ -60,16 +60,16 @@ export default function VideoExperience({ onOpenReserve }: VideoExperienceProps)
           <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
             The Sizzle &amp; The Pour
           </h2>
-          <p className="text-stone-400 text-sm font-light leading-relaxed">
+          <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
             High heat sear, aromatic butter baste, and a shower of house chimichurri. Watch our weekend craft straight from the iron.
           </p>
         </div>
 
         {/* Video Player & Showcase Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-5xl mx-auto">
           {/* Main Video Frame */}
           <div className="lg:col-span-7 flex justify-center">
-            <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[9/16] bg-black border border-stone-800 overflow-hidden shadow-2xl">
+            <div className="relative w-full max-w-[320px] sm:max-w-[360px] aspect-[9/16] bg-black border border-stone-800 overflow-hidden shadow-2xl">
               {activeVideo.isInstagram ? (
                 <div className="relative w-full h-full bg-black flex flex-col">
                   <iframe

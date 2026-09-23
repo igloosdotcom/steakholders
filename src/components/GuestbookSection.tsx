@@ -45,11 +45,11 @@ export default function GuestbookSection() {
   });
 
   return (
-    <section id="reviews" className="py-28 bg-[#0c0c0e] relative border-t border-stone-900">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="reviews" className="py-16 sm:py-24 bg-[#0c0c0e] relative border-t border-stone-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-4">
-          <div className="flex items-center justify-center gap-3 text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 space-y-3 sm:space-y-4">
+          <div className="flex items-center justify-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
             <span>05</span>
             <span className="w-6 h-[1px] bg-[#c5a880]/60" />
             <span>Verified Reputation</span>
@@ -57,13 +57,13 @@ export default function GuestbookSection() {
           <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
             Genuine Google Reviews
           </h2>
-          <p className="text-stone-400 text-sm font-light leading-relaxed">
+          <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
             Real feedback from weekend visitors at our Birmingham Hub, verified on our Google Business Profile.
           </p>
         </div>
 
         {/* Official Google Scorecard Banner */}
-        <div className="mb-14 p-8 sm:p-10 bg-stone-950 border border-stone-800/90 relative overflow-hidden">
+        <div className="mb-10 sm:mb-14 p-5 sm:p-8 lg:p-10 bg-stone-950 border border-stone-800/90 relative overflow-hidden">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             {/* Score & Stars */}
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
@@ -171,11 +171,11 @@ export default function GuestbookSection() {
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {filteredReviews.map(rev => (
             <div
               key={rev.id}
-              className="bg-stone-950 border border-stone-800/80 hover:border-[#c5a880]/60 transition-all duration-300 flex flex-col justify-between group p-6 sm:p-7 relative"
+              className="bg-stone-950 border border-stone-800/80 hover:border-[#c5a880]/60 transition-all duration-300 flex flex-col justify-between group p-5 sm:p-7 relative"
             >
               <div>
                 {/* Author Info Bar with Google icon */}

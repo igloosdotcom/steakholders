@@ -20,54 +20,52 @@ export default function Hero({ onOpenReserve, onOpenVideo }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 bg-[#09090a]">
+    <section className="relative min-h-[90vh] sm:min-h-[92vh] flex items-center justify-center pt-24 sm:pt-28 pb-12 sm:pb-16 bg-[#09090a]">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#c5a880]/5 blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[320px] sm:w-[600px] h-[200px] sm:h-[300px] bg-[#c5a880]/5 blur-[80px] sm:blur-[120px] pointer-events-none rounded-full" />
 
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left Column: Brand Statement & Interactive Action */}
-          <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
             {/* Editorial Kicker */}
-            <div className="flex items-center justify-center lg:justify-start gap-3 text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#c5a880] font-medium">
               <span>{BRAND_INFO.badge}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]/80" />
-              <span>Established in London · Now in Birmingham</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]/80 hidden sm:inline-block" />
+              <span>Est. London · Now in Birmingham</span>
             </div>
 
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-normal tracking-tight text-[#f5f2eb] leading-[1.08]">
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-serif font-normal tracking-tight text-[#f5f2eb] leading-[1.1]">
                 The people’s <br />
                 <span className="italic font-light text-[#c5a880]">Steak-away</span>.
               </h1>
-              <p className="text-sm sm:text-base text-stone-300 font-light max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-xs sm:text-base text-stone-300 font-light max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 Established in London and now in Birmingham, serving the UK's most celebrated gourmet steak &amp; chips. High-grade Angus beef seared on screaming cast iron, double-fried chips, zesty chimichurri, and house crunch garnish.
               </p>
             </div>
 
-            {/* Provenance & Schedule Bar */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-y-3 gap-x-6 text-xs text-stone-400 border-y border-stone-800/80 py-4 max-w-xl">
-              <div>
+            {/* Provenance & Schedule Bar - Mobile Optimized Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-stone-400 border-y border-stone-800/80 py-3.5 sm:py-4 max-w-xl mx-auto lg:mx-0">
+              <div className="text-center sm:text-left">
                 <span className="text-stone-500 uppercase tracking-widest text-[9px] block font-mono">Kitchen Hub</span>
-                <span className="text-stone-200">{BRAND_INFO.shortAddress}</span>
+                <span className="text-stone-200 font-medium">{BRAND_INFO.shortAddress}</span>
               </div>
-              <div className="hidden sm:block w-[1px] h-7 bg-stone-800" />
-              <div>
+              <div className="text-center sm:text-left border-t sm:border-t-0 sm:border-l border-stone-800/80 pt-2 sm:pt-0 sm:pl-4">
                 <span className="text-stone-500 uppercase tracking-widest text-[9px] block font-mono">Service Windows</span>
-                <span className="text-stone-200">Every Weekend 17:00 – 22:30</span>
+                <span className="text-stone-200 font-medium">Weekend 17:00 – 22:30</span>
               </div>
-              <div className="hidden sm:block w-[1px] h-7 bg-stone-800" />
-              <div>
+              <div className="text-center sm:text-left border-t sm:border-t-0 sm:border-l border-stone-800/80 pt-2 sm:pt-0 sm:pl-4">
                 <span className="text-stone-500 uppercase tracking-widest text-[9px] block font-mono">Quality Standard</span>
-                <span className="text-[#c5a880]">100% Angus HMC Certified</span>
+                <span className="text-[#c5a880] font-medium">100% Angus HMC</span>
               </div>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1 sm:pt-2">
               <button
                 onClick={onOpenReserve}
-                className="w-full sm:w-auto px-8 py-3.5 bg-[#c5a880] hover:bg-[#d6bc96] text-[#09090a] font-medium text-xs tracking-[0.22em] uppercase transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-[#c5a880]/10 hover:shadow-[#c5a880]/20"
+                className="w-full sm:w-auto min-h-[48px] px-8 py-3.5 bg-[#c5a880] hover:bg-[#d6bc96] text-[#09090a] font-medium text-xs tracking-[0.22em] uppercase transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-[#c5a880]/10 hover:shadow-[#c5a880]/20"
               >
                 <span>Reserve Weekend Box</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -75,7 +73,7 @@ export default function Hero({ onOpenReserve, onOpenVideo }: HeroProps) {
 
               <button
                 onClick={onOpenVideo}
-                className="w-full sm:w-auto px-7 py-3.5 bg-stone-900/60 border border-stone-800 hover:border-[#c5a880] text-stone-300 hover:text-white font-medium text-xs tracking-[0.22em] uppercase transition-all duration-300 flex items-center justify-center gap-3"
+                className="w-full sm:w-auto min-h-[48px] px-7 py-3.5 bg-stone-900/60 border border-stone-800 hover:border-[#c5a880] text-stone-300 hover:text-white font-medium text-xs tracking-[0.22em] uppercase transition-all duration-300 flex items-center justify-center gap-3"
               >
                 <Play className="w-3 h-3 fill-current text-[#c5a880]" />
                 <span>The Sizzle Studio</span>
@@ -83,17 +81,17 @@ export default function Hero({ onOpenReserve, onOpenVideo }: HeroProps) {
             </div>
 
             {/* Taste Profile Badges */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1 text-[11px] text-stone-400 font-mono">
-              <span className="px-2.5 py-1 bg-stone-950 border border-stone-800">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2 pt-1 text-[10px] sm:text-[11px] text-stone-400 font-mono">
+              <span className="px-2 sm:px-2.5 py-1 bg-stone-950 border border-stone-800">
                 28-Day Dry Aged
               </span>
-              <span className="px-2.5 py-1 bg-stone-950 border border-stone-800">
-                Cast Iron Caramelized Crust
+              <span className="px-2 sm:px-2.5 py-1 bg-stone-950 border border-stone-800">
+                Cast Iron Crust
               </span>
-              <span className="px-2.5 py-1 bg-stone-950 border border-stone-800">
+              <span className="px-2 sm:px-2.5 py-1 bg-stone-950 border border-stone-800">
                 Fresh Chimichurri
               </span>
-              <span className="px-2.5 py-1 bg-stone-950 border border-stone-800 text-[#c5a880]">
+              <span className="px-2 sm:px-2.5 py-1 bg-stone-950 border border-stone-800 text-[#c5a880]">
                 Mis-Matcha Collab
               </span>
             </div>

@@ -102,12 +102,12 @@ export default function SteakDonenessSimulator({
   };
 
   return (
-    <section id="doneness" className="py-24 bg-[#0a0a0c] border-t border-stone-900 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="doneness" className="py-16 sm:py-24 bg-[#0a0a0c] border-t border-stone-900 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="space-y-4 max-w-2xl">
-            <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-4 sm:gap-6">
+          <div className="space-y-3 sm:space-y-4 max-w-2xl">
+            <div className="flex items-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
               <span>Interactive Studio</span>
               <span className="w-6 h-[1px] bg-[#c5a880]/60" />
               <span>The Doneness Dial</span>
@@ -115,42 +115,42 @@ export default function SteakDonenessSimulator({
             <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
               Precision Cast-Iron Craft
             </h2>
-            <p className="text-stone-400 text-sm font-light leading-relaxed">
+            <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
               Explore the thermal physics, tenderness metrics, and cross-section anatomy of each sear level before booking your weekend cut.
             </p>
           </div>
 
-          {/* Cut Selector Switcher */}
-          <div className="flex items-center p-1 bg-stone-950 border border-stone-800 self-start md:self-auto">
+          {/* Cut Selector Switcher - Mobile Full Width */}
+          <div className="grid grid-cols-2 sm:flex items-center p-1 bg-stone-950 border border-stone-800 w-full sm:w-auto">
             <button
               onClick={() => setSelectedCut('sirloin')}
-              className={`px-5 py-2.5 text-xs uppercase tracking-[0.15em] font-medium transition-all ${
+              className={`px-3 sm:px-5 py-2.5 text-[11px] sm:text-xs uppercase tracking-[0.15em] font-medium transition-all text-center ${
                 selectedCut === 'sirloin'
                   ? 'bg-stone-800 text-[#f5f2eb] border border-stone-700'
                   : 'text-stone-400 hover:text-stone-200'
               }`}
             >
-              Angus Sirloin · £15.00
+              Sirloin · £15
             </button>
             <button
               onClick={() => setSelectedCut('ribeye')}
-              className={`px-5 py-2.5 text-xs uppercase tracking-[0.15em] font-medium transition-all ${
+              className={`px-3 sm:px-5 py-2.5 text-[11px] sm:text-xs uppercase tracking-[0.15em] font-medium transition-all text-center ${
                 selectedCut === 'ribeye'
                   ? 'bg-stone-800 text-[#c5a880] border border-stone-700'
                   : 'text-stone-400 hover:text-stone-200'
               }`}
             >
-              Prime Ribeye · £19.00
+              Ribeye · £19
             </button>
           </div>
         </div>
 
         {/* Interactive Simulator Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Left Column: Interactive Doneness Controls & Visual Cross-Section */}
-          <div className="lg:col-span-7 bg-stone-950 border border-stone-800 p-8 sm:p-10 space-y-8 flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-stone-950 border border-stone-800 p-5 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 flex flex-col justify-between">
             {/* Doneness Selector Tabs */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <span className="text-[10px] uppercase tracking-[0.25em] text-stone-500 font-mono block">
                 Choose Temperature &amp; Sear Level
               </span>
@@ -163,19 +163,19 @@ export default function SteakDonenessSimulator({
                     <button
                       key={key}
                       onClick={() => setActiveDoneness(key)}
-                      className={`p-3.5 text-left border transition-all relative ${
+                      className={`p-2.5 sm:p-3.5 text-left border transition-all relative ${
                         isActive
                           ? 'bg-stone-900 border-[#c5a880] text-stone-100 shadow-md'
                           : 'bg-stone-950/60 border-stone-800/80 hover:border-stone-700 text-stone-400'
                       }`}
                     >
                       {item.chefChoice && (
-                        <span className="absolute -top-2.5 right-2 px-1.5 py-0.2 bg-[#c5a880] text-[#09090a] text-[8px] uppercase tracking-wider font-bold">
+                        <span className="absolute -top-2.5 right-1.5 sm:right-2 px-1.5 py-0.2 bg-[#c5a880] text-[#09090a] text-[8px] uppercase tracking-wider font-bold">
                           Chef Standard
                         </span>
                       )}
-                      <div className="font-serif text-sm text-stone-200">{item.title}</div>
-                      <div className="text-[10px] text-stone-500 font-mono mt-0.5">
+                      <div className="font-serif text-xs sm:text-sm text-stone-200">{item.title}</div>
+                      <div className="text-[9px] sm:text-[10px] text-stone-500 font-mono mt-0.5">
                         {item.tempC}°C / {item.tempF}°F
                       </div>
                     </button>
@@ -185,25 +185,25 @@ export default function SteakDonenessSimulator({
             </div>
 
             {/* Simulated Cross-Section View */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="flex items-center justify-between text-xs">
                 <span className="text-stone-400 font-light">Simulated Core Anatomy</span>
-                <span className="font-mono text-[#c5a880] text-[11px]">
-                  Internal Target: {doneness.tempC}°C ({doneness.tempF}°F)
+                <span className="font-mono text-[#c5a880] text-[10px] sm:text-[11px]">
+                  Target: {doneness.tempC}°C ({doneness.tempF}°F)
                 </span>
               </div>
 
               {/* Graphic Steak Cross Section */}
-              <div className="relative h-28 bg-stone-900/90 border border-stone-800 overflow-hidden flex flex-col justify-between p-3 group">
+              <div className="relative h-24 sm:h-28 bg-stone-900/90 border border-stone-800 overflow-hidden flex flex-col justify-between p-2.5 sm:p-3 group">
                 {/* Charred outer crust top */}
-                <div className="h-3 w-full bg-gradient-to-r from-stone-950 via-[#2a1d17] to-stone-950 border-b border-amber-900/40 flex items-center justify-between px-2 text-[9px] text-stone-500 uppercase font-mono">
-                  <span>Maillard Cast Iron Crust</span>
+                <div className="h-3 w-full bg-gradient-to-r from-stone-950 via-[#2a1d17] to-stone-950 border-b border-amber-900/40 flex items-center justify-between px-2 text-[8px] sm:text-[9px] text-stone-500 uppercase font-mono">
+                  <span>Maillard Crust</span>
                   <span>Smoking Tallow</span>
                 </div>
 
                 {/* Core Meat Temperature Render */}
                 <div
-                  className="my-auto h-12 w-full transition-all duration-500 flex items-center justify-center relative overflow-hidden"
+                  className="my-auto h-10 sm:h-12 w-full transition-all duration-500 flex items-center justify-center relative overflow-hidden"
                   style={{
                     backgroundColor: doneness.interiorColor,
                     boxShadow: `inset 0 0 20px rgba(0,0,0,0.6)`
@@ -211,13 +211,13 @@ export default function SteakDonenessSimulator({
                 >
                   {/* Subtle grain lines to represent beef muscle fibers */}
                   <div className="absolute inset-0 opacity-15 bg-[repeating-linear-gradient(90deg,transparent,transparent_6px,#000_6px,#000_8px)]" />
-                  <span className="relative z-10 font-serif text-xs tracking-widest uppercase text-stone-100 drop-shadow-md">
-                    {doneness.title} · {selectedCut === 'sirloin' ? 'Angus Sirloin' : 'Prime Ribeye'}
+                  <span className="relative z-10 font-serif text-[11px] sm:text-xs tracking-wider uppercase text-stone-100 drop-shadow-md text-center px-1">
+                    {doneness.title} · {selectedCut === 'sirloin' ? 'Sirloin' : 'Ribeye'}
                   </span>
                 </div>
 
                 {/* Charred outer crust bottom */}
-                <div className="h-3 w-full bg-gradient-to-r from-stone-950 via-[#2a1d17] to-stone-950 border-t border-amber-900/40 flex items-center justify-between px-2 text-[9px] text-stone-500 uppercase font-mono">
+                <div className="h-3 w-full bg-gradient-to-r from-stone-950 via-[#2a1d17] to-stone-950 border-t border-amber-900/40 flex items-center justify-between px-2 text-[8px] sm:text-[9px] text-stone-500 uppercase font-mono">
                   <span>Cast Iron Base Sear</span>
                   <span>Rested 6 Mins</span>
                 </div>
@@ -225,8 +225,8 @@ export default function SteakDonenessSimulator({
             </div>
 
             {/* Dynamic Culinary Headline */}
-            <div className="space-y-2 pt-2 border-t border-stone-800/80">
-              <h4 className="text-base font-serif text-[#f5f2eb]">
+            <div className="space-y-1.5 sm:space-y-2 pt-2 border-t border-stone-800/80">
+              <h4 className="text-sm sm:text-base font-serif text-[#f5f2eb]">
                 {doneness.headline}
               </h4>
               <p className="text-xs text-stone-400 font-light leading-relaxed">
@@ -236,14 +236,14 @@ export default function SteakDonenessSimulator({
           </div>
 
           {/* Right Column: Culinary Radar & Custom Order Trigger */}
-          <div className="lg:col-span-5 bg-stone-950 border border-stone-800 p-8 sm:p-10 space-y-8 flex flex-col justify-between">
-            <div className="space-y-6">
+          <div className="lg:col-span-5 bg-stone-950 border border-stone-800 p-5 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 flex flex-col justify-between">
+            <div className="space-y-5 sm:space-y-6">
               <span className="text-[10px] uppercase tracking-[0.25em] text-[#c5a880] font-mono block">
                 Thermal &amp; Sensory Metrics
               </span>
 
               {/* Progress Gauges */}
-              <div className="space-y-5">
+              <div className="space-y-4 sm:space-y-5">
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs">
                     <span className="text-stone-300 font-light">Melt &amp; Tenderness Factor</span>
@@ -285,9 +285,9 @@ export default function SteakDonenessSimulator({
               </div>
 
               {/* Pairing Note */}
-              <div className="p-4 bg-stone-900/60 border border-stone-800 space-y-1.5">
+              <div className="p-3.5 sm:p-4 bg-stone-900/60 border border-stone-800 space-y-1.5">
                 <div className="text-[10px] uppercase tracking-widest text-[#c5a880] font-mono flex items-center gap-1.5">
-                  <Info className="w-3 h-3" />
+                  <Info className="w-3 h-3 shrink-0" />
                   <span>Chef's Service Suggestion</span>
                 </div>
                 <p className="text-xs text-stone-400 font-light leading-relaxed">
@@ -297,17 +297,17 @@ export default function SteakDonenessSimulator({
             </div>
 
             {/* Direct Order Trigger */}
-            <div className="space-y-3 pt-6 border-t border-stone-800">
+            <div className="space-y-3 pt-4 sm:pt-6 border-t border-stone-800">
               <div className="flex items-center justify-between text-xs">
                 <span className="text-stone-400">Selected Configuration:</span>
                 <span className="text-stone-200 font-medium font-serif">
-                  {selectedCut === 'sirloin' ? 'Angus Sirloin Box' : 'Prime Ribeye Box'} ({doneness.title})
+                  {selectedCut === 'sirloin' ? 'Angus Sirloin' : 'Prime Ribeye'} ({doneness.title})
                 </span>
               </div>
 
               <button
                 onClick={handleAddSelection}
-                className="w-full py-4 bg-[#c5a880] hover:bg-[#d6bc96] text-[#09090a] font-medium text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full min-h-[48px] py-3.5 sm:py-4 bg-[#c5a880] hover:bg-[#d6bc96] text-[#09090a] font-medium text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#c5a880]/10"
               >
                 {justAdded ? (
                   <>

@@ -8,11 +8,11 @@ interface ButcherShopProps {
 
 export default function ButcherShop({ onOpenOrder }: ButcherShopProps) {
   return (
-    <section id="butcher" className="py-28 bg-[#09090a] relative border-t border-stone-900">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="butcher" className="py-16 sm:py-24 bg-[#09090a] relative border-t border-stone-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="max-w-3xl mb-16 space-y-4">
-          <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
+        <div className="max-w-3xl mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+          <div className="flex items-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
             <span>04</span>
             <span className="w-6 h-[1px] bg-[#c5a880]/60" />
             <span>The Butcher's Reserve</span>
@@ -22,12 +22,12 @@ export default function ButcherShop({ onOpenOrder }: ButcherShopProps) {
             Raw &amp; Pre-Seasoned Steak Cuts
           </h2>
 
-          <p className="text-stone-400 text-sm sm:text-base font-light leading-relaxed">
+          <p className="text-stone-400 text-xs sm:text-base font-light leading-relaxed">
             Ready for your cast iron. 100% Halal Monitoring Committee (HMC) certified, aged for deep flavor and tenderness, hand-trimmed or chef-marinated for home skillet searing.
           </p>
 
           {/* Butcher Quality Guarantee Notice */}
-          <div className="p-4 sm:p-5 bg-stone-950 border border-[#c5a880]/40 flex flex-col sm:flex-row items-start sm:items-center gap-3.5 shadow-xl">
+          <div className="p-3.5 sm:p-5 bg-stone-950 border border-[#c5a880]/40 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-xl">
             <span className="text-[#09090a] bg-[#c5a880] text-[10px] font-mono uppercase tracking-[0.2em] font-semibold px-2.5 py-1 shrink-0">
               Butcher's Guarantee
             </span>
@@ -90,7 +90,7 @@ export default function ButcherShop({ onOpenOrder }: ButcherShopProps) {
               <div className="p-5 pt-0 space-y-2">
                 <button
                   onClick={() => onOpenOrder(cut)}
-                  className="w-full py-2.5 text-xs uppercase tracking-[0.18em] font-medium text-[#09090a] bg-[#c5a880] hover:bg-[#d6bc96] transition-colors flex items-center justify-center gap-2"
+                  className="w-full min-h-[44px] py-2.5 text-xs uppercase tracking-[0.18em] font-medium text-[#09090a] bg-[#c5a880] hover:bg-[#d6bc96] transition-colors flex items-center justify-center gap-2"
                 >
                   <span>Add To Order</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -100,7 +100,7 @@ export default function ButcherShop({ onOpenOrder }: ButcherShopProps) {
                   href={BRAND_INFO.jotformShop}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-2 text-[10px] uppercase tracking-wider text-stone-400 hover:text-stone-200 transition-colors flex items-center justify-center gap-1.5"
+                  className="w-full min-h-[40px] py-2 text-[10px] uppercase tracking-wider text-stone-400 hover:text-stone-200 transition-colors flex items-center justify-center gap-1.5"
                 >
                   <span>Order Directly via JotForm</span>
                   <ArrowUpRight className="w-3 h-3" />
@@ -111,7 +111,7 @@ export default function ButcherShop({ onOpenOrder }: ButcherShopProps) {
         </div>
 
         {/* Home Cooking Masterclass */}
-        <div className="mt-16 bg-stone-950 border border-stone-800 p-8 sm:p-10">
+        <div className="mt-12 sm:mt-16 bg-stone-950 border border-stone-800 p-6 sm:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
               <span className="text-[10px] uppercase tracking-[0.25em] text-[#c5a880] font-mono block">

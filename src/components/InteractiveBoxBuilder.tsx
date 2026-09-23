@@ -96,11 +96,11 @@ export default function InteractiveBoxBuilder({
   };
 
   return (
-    <section id="builder" className="py-24 bg-[#09090a] border-t border-stone-900 relative">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="space-y-4 max-w-2xl">
-            <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
+    <section id="builder" className="py-16 sm:py-24 bg-[#09090a] border-t border-stone-900 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-4 sm:gap-6">
+          <div className="space-y-3 sm:space-y-4 max-w-2xl">
+            <div className="flex items-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
               <span>Bespoke Assembly</span>
               <span className="w-6 h-[1px] bg-[#c5a880]/60" />
               <span>Plating Station</span>
@@ -108,12 +108,12 @@ export default function InteractiveBoxBuilder({
             <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
               Build Your Weekend Box
             </h2>
-            <p className="text-stone-400 text-sm font-light leading-relaxed">
+            <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
               Tailor every layer from cut selection to chip seasoning and collaborative drink pairing.
             </p>
           </div>
 
-          <div className="text-left md:text-right">
+          <div className="p-3 sm:p-0 bg-stone-950 sm:bg-transparent border sm:border-0 border-stone-800 flex items-center justify-between sm:block text-left md:text-right">
             <span className="text-[10px] uppercase tracking-widest text-stone-500 font-mono block">
               Configured Box Total
             </span>
@@ -123,11 +123,11 @@ export default function InteractiveBoxBuilder({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Left Column: Interactive Layer Configuration Form */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
             {/* Step 1: Steak Base, Size & Doneness */}
-            <div className="p-6 bg-stone-950 border border-stone-800 space-y-5">
+            <div className="p-4 sm:p-6 bg-stone-950 border border-stone-800 space-y-4 sm:space-y-5">
               <div className="flex items-center justify-between">
                 <span className="text-xs uppercase tracking-wider text-stone-300 font-medium">
                   1. The Prime Steak Base
@@ -137,15 +137,15 @@ export default function InteractiveBoxBuilder({
 
               {/* Cut Selection */}
               <div className="space-y-2">
-                <label className="text-[11px] uppercase tracking-wider text-stone-400 font-mono flex items-center justify-between">
+                <label className="text-[10px] sm:text-[11px] uppercase tracking-wider text-stone-400 font-mono flex items-center justify-between">
                   <span>A. Select Cut</span>
-                  <span className="text-stone-500 text-[10px] font-mono lowercase">100% HMC certified</span>
+                  <span className="text-stone-500 text-[9px] sm:text-[10px] font-mono lowercase">100% HMC certified</span>
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                   <button
                     type="button"
                     onClick={() => setSteakCut('sirloin')}
-                    className={`p-3.5 text-left border transition-all ${
+                    className={`p-3 sm:p-3.5 text-left border transition-all ${
                       steakCut === 'sirloin'
                         ? 'bg-stone-900 border-[#c5a880] text-stone-100'
                         : 'bg-stone-950 border-stone-800 text-stone-400 hover:text-stone-200'
@@ -163,7 +163,7 @@ export default function InteractiveBoxBuilder({
                   <button
                     type="button"
                     onClick={() => setSteakCut('ribeye')}
-                    className={`p-3.5 text-left border transition-all ${
+                    className={`p-3 sm:p-3.5 text-left border transition-all ${
                       steakCut === 'ribeye'
                         ? 'bg-stone-900 border-[#c5a880] text-stone-100'
                         : 'bg-stone-950 border-stone-800 text-stone-400 hover:text-stone-200'
@@ -182,62 +182,62 @@ export default function InteractiveBoxBuilder({
 
               {/* Box Size: Small - Medium - Large */}
               <div className="space-y-2 pt-2 border-t border-stone-800/80">
-                <label className="text-[11px] uppercase tracking-wider text-stone-400 font-mono flex items-center justify-between">
+                <label className="text-[10px] sm:text-[11px] uppercase tracking-wider text-stone-400 font-mono flex items-center justify-between">
                   <span>B. Box Size</span>
-                  <span className="text-[#c5a880] text-[10px] font-mono">Small · Medium · Large</span>
+                  <span className="text-[#c5a880] text-[9px] sm:text-[10px] font-mono">Small · Medium · Large</span>
                 </label>
-                <div className="grid grid-cols-3 gap-2.5">
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5">
                   <button
                     type="button"
                     onClick={() => setPortionSize('small')}
-                    className={`p-3 text-left border transition-all ${
+                    className={`p-2 sm:p-3 text-left border transition-all ${
                       portionSize === 'small'
                         ? 'bg-stone-900 border-[#c5a880] text-stone-100 shadow-sm'
                         : 'bg-stone-950 border-stone-800 text-stone-400 hover:text-stone-200'
                     }`}
                   >
-                    <div className="flex justify-between items-center font-serif text-xs">
+                    <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center font-serif text-xs">
                       <span>Small</span>
-                      <span className="text-[#c5a880] font-mono text-[10px]">-£2.00</span>
+                      <span className="text-[#c5a880] font-mono text-[9px] sm:text-[10px]">-£2.00</span>
                     </div>
-                    <p className="text-[10px] text-stone-500 font-light mt-1">
-                      ~150g portion
+                    <p className="text-[9px] sm:text-[10px] text-stone-500 font-light mt-0.5 sm:mt-1 truncate sm:whitespace-normal">
+                      ~150g
                     </p>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setPortionSize('medium')}
-                    className={`p-3 text-left border transition-all ${
+                    className={`p-2 sm:p-3 text-left border transition-all ${
                       portionSize === 'medium'
                         ? 'bg-stone-900 border-[#c5a880] text-stone-100 shadow-sm'
                         : 'bg-stone-950 border-stone-800 text-stone-400 hover:text-stone-200'
                     }`}
                   >
-                    <div className="flex justify-between items-center font-serif text-xs">
+                    <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center font-serif text-xs">
                       <span>Medium</span>
-                      <span className="text-stone-400 font-mono text-[10px]">Standard</span>
+                      <span className="text-stone-400 font-mono text-[9px] sm:text-[10px]">Std</span>
                     </div>
-                    <p className="text-[10px] text-stone-500 font-light mt-1">
-                      ~200g standard
+                    <p className="text-[9px] sm:text-[10px] text-stone-500 font-light mt-0.5 sm:mt-1 truncate sm:whitespace-normal">
+                      ~200g
                     </p>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setPortionSize('large')}
-                    className={`p-3 text-left border transition-all ${
+                    className={`p-2 sm:p-3 text-left border transition-all ${
                       portionSize === 'large'
                         ? 'bg-stone-900 border-[#c5a880] text-stone-100 shadow-sm'
                         : 'bg-stone-950 border-stone-800 text-stone-400 hover:text-stone-200'
                     }`}
                   >
-                    <div className="flex justify-between items-center font-serif text-xs">
+                    <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center font-serif text-xs">
                       <span>Large</span>
-                      <span className="text-[#c5a880] font-mono text-[10px]">+£3.50</span>
+                      <span className="text-[#c5a880] font-mono text-[9px] sm:text-[10px]">+£3.50</span>
                     </div>
-                    <p className="text-[10px] text-stone-500 font-light mt-1">
-                      ~280g king cut
+                    <p className="text-[9px] sm:text-[10px] text-stone-500 font-light mt-0.5 sm:mt-1 truncate sm:whitespace-normal">
+                      ~280g
                     </p>
                   </button>
                 </div>
@@ -245,22 +245,22 @@ export default function InteractiveBoxBuilder({
 
               {/* Doneness: Rare - Medium Rare (Chef Standard) - Medium - Well Done */}
               <div className="space-y-2 pt-2 border-t border-stone-800/80">
-                <label className="text-[11px] uppercase tracking-wider text-stone-400 font-mono flex items-center justify-between">
+                <label className="text-[10px] sm:text-[11px] uppercase tracking-wider text-stone-400 font-mono flex items-center justify-between">
                   <span>C. Doneness</span>
-                  <span className="text-stone-400 text-[10px] font-mono">Skillet Sear</span>
+                  <span className="text-stone-400 text-[9px] sm:text-[10px] font-mono">Skillet Sear</span>
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2">
                   <button
                     type="button"
                     onClick={() => setDoneness('Rare')}
-                    className={`p-2.5 text-left border transition-all ${
+                    className={`p-2 sm:p-2.5 text-left border transition-all ${
                       doneness === 'Rare'
                         ? 'bg-stone-900 border-[#c5a880] text-stone-100'
                         : 'bg-stone-950 border-stone-800 text-stone-400 hover:text-stone-200'
                     }`}
                   >
                     <div className="font-serif text-xs text-stone-200">Rare</div>
-                    <p className="text-[10px] text-stone-500 font-light mt-0.5">
+                    <p className="text-[9px] sm:text-[10px] text-stone-500 font-light mt-0.5">
                       Warm red center
                     </p>
                   </button>
@@ -268,7 +268,7 @@ export default function InteractiveBoxBuilder({
                   <button
                     type="button"
                     onClick={() => setDoneness('Medium Rare')}
-                    className={`p-2.5 text-left border transition-all ${
+                    className={`p-2 sm:p-2.5 text-left border transition-all ${
                       doneness === 'Medium Rare'
                         ? 'bg-stone-900 border-[#c5a880] text-stone-100'
                         : 'bg-stone-950 border-stone-800 text-stone-400 hover:text-stone-200'
@@ -277,8 +277,8 @@ export default function InteractiveBoxBuilder({
                     <div className="font-serif text-xs text-[#c5a880] font-medium leading-tight">
                       Medium Rare
                     </div>
-                    <div className="text-[9px] text-[#c5a880]/90 font-mono uppercase mt-0.5">Chef Standard</div>
-                    <p className="text-[10px] text-stone-500 font-light mt-0.5">
+                    <div className="text-[8px] sm:text-[9px] text-[#c5a880]/90 font-mono uppercase mt-0.5">Chef Standard</div>
+                    <p className="text-[9px] sm:text-[10px] text-stone-500 font-light mt-0.5">
                       Warm red center, tender
                     </p>
                   </button>
@@ -286,14 +286,14 @@ export default function InteractiveBoxBuilder({
                   <button
                     type="button"
                     onClick={() => setDoneness('Medium')}
-                    className={`p-2.5 text-left border transition-all ${
+                    className={`p-2 sm:p-2.5 text-left border transition-all ${
                       doneness === 'Medium'
                         ? 'bg-stone-900 border-[#c5a880] text-stone-100'
                         : 'bg-stone-950 border-stone-800 text-stone-400 hover:text-stone-200'
                     }`}
                   >
                     <div className="font-serif text-xs text-stone-200">Medium</div>
-                    <p className="text-[10px] text-stone-500 font-light mt-0.5">
+                    <p className="text-[9px] sm:text-[10px] text-stone-500 font-light mt-0.5">
                       Warm pink center
                     </p>
                   </button>
@@ -301,14 +301,14 @@ export default function InteractiveBoxBuilder({
                   <button
                     type="button"
                     onClick={() => setDoneness('Well Done')}
-                    className={`p-2.5 text-left border transition-all ${
+                    className={`p-2 sm:p-2.5 text-left border transition-all ${
                       doneness === 'Well Done'
                         ? 'bg-stone-900 border-[#c5a880] text-stone-100'
                         : 'bg-stone-950 border-stone-800 text-stone-400 hover:text-stone-200'
                     }`}
                   >
                     <div className="font-serif text-xs text-stone-200">Well Done</div>
-                    <p className="text-[10px] text-stone-500 font-light mt-0.5">
+                    <p className="text-[9px] sm:text-[10px] text-stone-500 font-light mt-0.5">
                       Cooked through
                     </p>
                   </button>
@@ -604,7 +604,7 @@ export default function InteractiveBoxBuilder({
               <div className="space-y-3">
                 <button
                   onClick={handleBuildBox}
-                  className="w-full py-4 bg-[#c5a880] hover:bg-[#d6bc96] text-[#09090a] font-medium text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#c5a880]/10"
+                  className="w-full min-h-[48px] py-3.5 sm:py-4 bg-[#c5a880] hover:bg-[#d6bc96] text-[#09090a] font-medium text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#c5a880]/10"
                 >
                   {addedSuccess ? (
                     <>
