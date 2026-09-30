@@ -45,10 +45,10 @@ export default function Navbar({ onOpenReserve, cartCount }: NavbarProps) {
             Origin
           </a>
           <a
-            href="#doneness"
+            href="#experience"
             className="hover:text-[#c5a880] transition-colors"
           >
-            Doneness Dial
+            Sensory Craft
           </a>
           <a
             href="#builder"
@@ -129,13 +129,6 @@ export default function Navbar({ onOpenReserve, cartCount }: NavbarProps) {
                 <span className="text-[10px] font-mono">Customise</span>
               </a>
               <a
-                href="#doneness"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
-              >
-                Doneness Dial
-              </a>
-              <a
                 href="#menu"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
@@ -154,7 +147,14 @@ export default function Navbar({ onOpenReserve, cartCount }: NavbarProps) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
               >
-                The Sizzle Studio
+                Sensory Craft
+              </a>
+              <a
+                href="#builder"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1.5 px-1 hover:text-[#c5a880] transition-colors"
+              >
+                Box Builder
               </a>
               <a
                 href="#butcher"

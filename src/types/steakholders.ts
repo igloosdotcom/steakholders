@@ -7,6 +7,12 @@ export interface MenuItem {
   price: number;
   image: string;
   details: string[];
+  isMystery?: boolean;
+  secretName?: string;
+  secretBadge?: string;
+  secretDescription?: string;
+  secretDetails?: string[];
+  secretImage?: string;
 }
 
 export interface ButcherCut {

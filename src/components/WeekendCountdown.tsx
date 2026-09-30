@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowUpRight, Clock, MapPin } from 'lucide-react';
 import { BRAND_INFO } from '../data/content';
+import ScrollReveal from './ScrollReveal';
 
 interface WeekendCountdownProps {
   onOpenReserve: () => void;
@@ -46,7 +47,8 @@ export default function WeekendCountdown({ onOpenReserve }: WeekendCountdownProp
 
   return (
     <div className="bg-[#111113] border-y border-stone-800/80 py-3.5 sm:py-4 px-4 sm:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+      <ScrollReveal distance={16}>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
         {/* Left: Status & Location */}
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 text-xs text-stone-300 text-center sm:text-left">
           <div className="flex items-center gap-2">
@@ -112,6 +114,7 @@ export default function WeekendCountdown({ onOpenReserve }: WeekendCountdownProp
           </button>
         </div>
       </div>
-    </div>
-  );
+    </ScrollReveal>
+  </div>
+);
 }

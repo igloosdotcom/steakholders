@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowUpRight, Check, Plus } from 'lucide-react';
 import { MenuItem } from '../types/steakholders';
 import { MENU_ITEMS } from '../data/content';
+import ScrollReveal from './ScrollReveal';
 
 interface InteractiveBoxBuilderProps {
   onSelectItem: (
@@ -98,34 +99,37 @@ export default function InteractiveBoxBuilder({
   return (
     <section id="builder" className="py-16 sm:py-24 bg-[#09090a] border-t border-stone-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-4 sm:gap-6">
-          <div className="space-y-3 sm:space-y-4 max-w-2xl">
-            <div className="flex items-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
-              <span>Bespoke Assembly</span>
-              <span className="w-6 h-[1px] bg-[#c5a880]/60" />
-              <span>Plating Station</span>
+        <ScrollReveal distance={20}>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-4 sm:gap-6">
+            <div className="space-y-3 sm:space-y-4 max-w-2xl">
+              <div className="flex items-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
+                <span>Bespoke Assembly</span>
+                <span className="w-6 h-[1px] bg-[#c5a880]/60" />
+                <span>Plating Station</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
+                Build Your Weekend Box
+              </h2>
+              <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+                Tailor every layer from cut selection to chip seasoning and collaborative drink pairing.
+              </p>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
-              Build Your Weekend Box
-            </h2>
-            <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
-              Tailor every layer from cut selection to chip seasoning and collaborative drink pairing.
-            </p>
-          </div>
 
-          <div className="p-3 sm:p-0 bg-stone-950 sm:bg-transparent border sm:border-0 border-stone-800 flex items-center justify-between sm:block text-left md:text-right">
-            <span className="text-[10px] uppercase tracking-widest text-stone-500 font-mono block">
-              Configured Box Total
-            </span>
-            <span className="text-2xl sm:text-3xl font-mono text-[#c5a880] font-medium tabular-nums">
-              £{totalPrice.toFixed(2)}
-            </span>
+            <div className="p-3 sm:p-0 bg-stone-950 sm:bg-transparent border sm:border-0 border-stone-800 flex items-center justify-between sm:block text-left md:text-right">
+              <span className="text-[10px] uppercase tracking-widest text-stone-500 font-mono block">
+                Configured Box Total
+              </span>
+              <span className="text-2xl sm:text-3xl font-mono text-[#c5a880] font-medium tabular-nums">
+                £{totalPrice.toFixed(2)}
+              </span>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Left Column: Interactive Layer Configuration Form */}
-          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
+          <ScrollReveal direction="up" distance={28} delay={100} className="lg:col-span-7 space-y-4 sm:space-y-6">
+            <div className="space-y-4 sm:space-y-6">
             {/* Step 1: Steak Base, Size & Doneness */}
             <div className="p-4 sm:p-6 bg-stone-950 border border-stone-800 space-y-4 sm:space-y-5">
               <div className="flex items-center justify-between">
@@ -492,11 +496,19 @@ export default function InteractiveBoxBuilder({
               </div>
             </div>
           </div>
+        </ScrollReveal>
 
-          {/* Right Column: Visual Box Manifest & Order CTA */}
-          <div className="lg:col-span-5 sticky top-28 space-y-6">
-            <div className="bg-stone-950 border border-stone-800 p-8 space-y-6">
-              <div className="flex items-center justify-between">
+        {/* Right Column: Visual Box Manifest & Order CTA */}
+        <ScrollReveal
+          direction="up"
+          distance={28}
+          delay={220}
+          interactiveGlow={true}
+          shineOnEntrance={true}
+          className="lg:col-span-5 sticky top-28 space-y-6"
+        >
+          <div className="bg-stone-950 border border-stone-800 p-8 space-y-6">
+            <div className="flex items-center justify-between">
                 <span className="text-[10px] uppercase tracking-[0.25em] text-[#c5a880] font-mono block">
                   Weekend Plating Manifest
                 </span>
@@ -624,7 +636,7 @@ export default function InteractiveBoxBuilder({
                 </p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

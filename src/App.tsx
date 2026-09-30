@@ -8,7 +8,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WeekendCountdown from './components/WeekendCountdown';
 import StorySection from './components/StorySection';
-import SteakDonenessSimulator from './components/SteakDonenessSimulator';
 import VideoExperience from './components/VideoExperience';
 import InteractiveBoxBuilder from './components/InteractiveBoxBuilder';
 import MenuSection from './components/MenuSection';
@@ -18,6 +17,7 @@ import CommunitySection from './components/CommunitySection';
 import LocationVisit from './components/LocationVisit';
 import ReservationModal from './components/ReservationModal';
 import Footer from './components/Footer';
+import ScrollProgress from './components/ScrollProgress';
 import { MenuItem, ButcherCut } from './types/steakholders';
 import { MENU_ITEMS } from './data/content';
 
@@ -110,6 +110,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#09090a] text-[#f5f2eb]">
+      <ScrollProgress />
       <Navbar onOpenReserve={handleOpenReserve} cartCount={totalCartCount} />
 
       <main>
@@ -123,12 +124,6 @@ export default function App() {
 
         {/* Brand Heritage Spread */}
         <StorySection />
-
-        {/* Interactive Steak Doneness & Thermal Physics Simulator */}
-        <SteakDonenessSimulator
-          onSelectItem={handleSelectItem}
-          onOpenReserve={handleOpenReserve}
-        />
 
         {/* Sizzle & Pour Reel Player with Kitchen Audio */}
         <VideoExperience onOpenReserve={handleOpenReserve} />

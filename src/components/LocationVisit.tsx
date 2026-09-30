@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Copy, Check, ArrowUpRight } from 'lucide-react';
 import { BRAND_INFO } from '../data/content';
+import ScrollReveal from './ScrollReveal';
 
 interface LocationVisitProps {
   onOpenReserve: () => void;
@@ -18,22 +19,25 @@ export default function LocationVisit({ onOpenReserve }: LocationVisitProps) {
   return (
     <section id="visit" className="py-16 sm:py-24 bg-[#0c0c0e] relative border-t border-stone-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
-          <div className="flex items-center justify-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
-            <span>08</span>
-            <span className="w-6 h-[1px] bg-[#c5a880]/60" />
-            <span>Locations &amp; Contact</span>
+        <ScrollReveal distance={20}>
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+            <div className="flex items-center justify-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
+              <span>08</span>
+              <span className="w-6 h-[1px] bg-[#c5a880]/60" />
+              <span>Locations &amp; Contact</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
+              Weekend Collection &amp; Inquiries
+            </h2>
+            <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+              Established in London, now serving every weekend at our Birmingham Hub. Freshly prepared for collection.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
-            Weekend Collection &amp; Inquiries
-          </h2>
-          <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
-            Established in London, now serving every weekend at our Birmingham Hub. Freshly prepared for collection.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Merged Single Box: Active Kitchen Hub & Brand Heritage */}
-        <div className="max-w-4xl mx-auto bg-stone-950 border border-stone-800 p-5 sm:p-8 md:p-12 shadow-2xl space-y-6 sm:space-y-8">
+        <ScrollReveal scale={0.98} distance={28} delay={100}>
+          <div className="max-w-4xl mx-auto bg-stone-950 border border-stone-800 p-5 sm:p-8 md:p-12 shadow-2xl space-y-6 sm:space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 sm:pb-6 border-b border-stone-800/80 gap-3 sm:gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1 sm:mb-2">
@@ -149,7 +153,8 @@ export default function LocationVisit({ onOpenReserve }: LocationVisitProps) {
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
+      </ScrollReveal>
+    </div>
+  </section>
+);
 }

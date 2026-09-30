@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { X, ZoomIn, Star, ExternalLink, CheckCircle2, MessageSquarePlus } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { REVIEWS, BRAND_INFO } from '../data/content';
 import { ReviewItem } from '../types/steakholders';
+import ScrollReveal from './ScrollReveal';
+import AnimatedCounter from './AnimatedCounter';
 
 // Clean Google "G" Logo SVG component
 function GoogleGIcon({ className = 'w-4 h-4' }: { className?: string }) {
@@ -48,247 +51,270 @@ export default function GuestbookSection() {
     <section id="reviews" className="py-16 sm:py-24 bg-[#0c0c0e] relative border-t border-stone-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 space-y-3 sm:space-y-4">
-          <div className="flex items-center justify-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
-            <span>05</span>
-            <span className="w-6 h-[1px] bg-[#c5a880]/60" />
-            <span>Verified Reputation</span>
+        <ScrollReveal distance={20}>
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 space-y-3 sm:space-y-4">
+            <div className="flex items-center justify-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
+              <span>05</span>
+              <span className="w-6 h-[1px] bg-[#c5a880]/60" />
+              <span>Verified Reputation</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
+              Genuine Google Reviews
+            </h2>
+            <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+              Real feedback from weekend visitors at our Birmingham Hub, verified on our Google Business Profile.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
-            Genuine Google Reviews
-          </h2>
-          <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
-            Real feedback from weekend visitors at our Birmingham Hub, verified on our Google Business Profile.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Official Google Scorecard Banner */}
-        <div className="mb-10 sm:mb-14 p-5 sm:p-8 lg:p-10 bg-stone-950 border border-stone-800/90 relative overflow-hidden">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            {/* Score & Stars */}
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-white/5 border border-stone-700/80 flex items-center justify-center shadow-inner">
-                  <GoogleGIcon className="w-8 h-8" />
-                </div>
-                <div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl sm:text-5xl font-serif font-normal text-white">
-                      {BRAND_INFO.googleRating}
-                    </span>
-                    <span className="text-stone-500 text-sm font-mono">/ 5.0</span>
+        <ScrollReveal
+          scale={0.98}
+          distance={24}
+          delay={100}
+          interactiveGlow={true}
+          shineOnEntrance={true}
+        >
+          <div className="mb-10 sm:mb-14 p-5 sm:p-8 lg:p-10 bg-stone-950 border border-stone-800/90 relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+              {/* Score & Stars */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-white/5 border border-stone-700/80 flex items-center justify-center shadow-inner">
+                    <GoogleGIcon className="w-8 h-8" />
                   </div>
-                  <div className="flex items-center gap-1 mt-1 justify-center sm:justify-start">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
-                    ))}
+                  <div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl sm:text-5xl font-serif font-normal text-white">
+                        <AnimatedCounter value={BRAND_INFO.googleRating} decimals={1} />
+                      </span>
+                      <span className="text-stone-500 text-sm font-mono">/ 5.0</span>
+                    </div>
+                    <div className="flex items-center gap-1 mt-1 justify-center sm:justify-start">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="sm:border-l sm:border-stone-800 sm:pl-6 space-y-1">
+                  <div className="text-xs uppercase font-mono tracking-widest text-[#c5a880]">
+                    Official Google Rating
+                  </div>
+                  <div className="text-stone-300 text-xs font-light">
+                    Based on <AnimatedCounter value={BRAND_INFO.googleReviewCount} suffix="+" /> genuine customer reviews on Google Maps
+                  </div>
+                  <div className="text-[11px] text-stone-500 font-light flex items-center justify-center sm:justify-start gap-1.5 pt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>{BRAND_INFO.fullAddress}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="sm:border-l sm:border-stone-800 sm:pl-6 space-y-1">
-                <div className="text-xs uppercase font-mono tracking-widest text-[#c5a880]">
-                  Official Google Rating
-                </div>
-                <div className="text-stone-300 text-xs font-light">
-                  Based on {BRAND_INFO.googleReviewCount}+ genuine customer reviews on Google Maps
-                </div>
-                <div className="text-[11px] text-stone-500 font-light flex items-center justify-center sm:justify-start gap-1.5 pt-0.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>{BRAND_INFO.fullAddress}</span>
-                </div>
+              {/* Direct Link to Google Business Profile */}
+              <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+                <a
+                  href={BRAND_INFO.googleBusinessLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full sm:w-auto px-6 py-3 bg-[#c5a880] hover:bg-[#d6bc96] text-[#09090a] font-medium text-xs tracking-[0.2em] uppercase transition-colors flex items-center justify-center gap-2"
+                >
+                  <GoogleGIcon className="w-4 h-4" />
+                  <span>View on Google</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                <a
+                  href={BRAND_INFO.googleBusinessLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full sm:w-auto px-5 py-3 bg-stone-900 hover:bg-stone-800 text-stone-200 border border-stone-700 font-medium text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2"
+                >
+                  <MessageSquarePlus className="w-3.5 h-3.5 text-stone-400" />
+                  <span>Leave a Review</span>
+                </a>
               </div>
-            </div>
-
-            {/* Direct Link to Google Business Profile */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
-              <a
-                href={BRAND_INFO.googleBusinessLink}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto px-6 py-3 bg-[#c5a880] hover:bg-[#d6bc96] text-[#09090a] font-medium text-xs tracking-[0.2em] uppercase transition-colors flex items-center justify-center gap-2"
-              >
-                <GoogleGIcon className="w-4 h-4" />
-                <span>View on Google</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-
-              <a
-                href={BRAND_INFO.googleBusinessLink}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto px-5 py-3 bg-stone-900 hover:bg-stone-800 text-stone-200 border border-stone-700 font-medium text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2"
-              >
-                <MessageSquarePlus className="w-3.5 h-3.5 text-stone-400" />
-                <span>Leave a Review</span>
-              </a>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Filter Navigation Tabs */}
-        <div className="flex items-center justify-center gap-2 pb-10 flex-wrap">
-          <button
-            onClick={() => setActiveCategory('all')}
-            className={`px-4 py-1.5 text-xs font-mono uppercase tracking-wider transition-all border ${
-              activeCategory === 'all'
-                ? 'bg-stone-800 text-[#f5f2eb] border-[#c5a880]'
-                : 'bg-transparent text-stone-400 border-stone-800 hover:border-stone-700 hover:text-stone-200'
-            }`}
-          >
-            All Reviews ({REVIEWS.length})
-          </button>
-          <button
-            onClick={() => setActiveCategory('ribeye')}
-            className={`px-4 py-1.5 text-xs font-mono uppercase tracking-wider transition-all border ${
-              activeCategory === 'ribeye'
-                ? 'bg-stone-800 text-[#f5f2eb] border-[#c5a880]'
-                : 'bg-transparent text-stone-400 border-stone-800 hover:border-stone-700 hover:text-stone-200'
-            }`}
-          >
-            Prime Ribeye
-          </button>
-          <button
-            onClick={() => setActiveCategory('sirloin')}
-            className={`px-4 py-1.5 text-xs font-mono uppercase tracking-wider transition-all border ${
-              activeCategory === 'sirloin'
-                ? 'bg-stone-800 text-[#f5f2eb] border-[#c5a880]'
-                : 'bg-transparent text-stone-400 border-stone-800 hover:border-stone-700 hover:text-stone-200'
-            }`}
-          >
-            Signature Sirloin
-          </button>
-          <button
-            onClick={() => setActiveCategory('london')}
-            className={`px-4 py-1.5 text-xs font-mono uppercase tracking-wider transition-all border ${
-              activeCategory === 'london'
-                ? 'bg-stone-800 text-[#f5f2eb] border-[#c5a880]'
-                : 'bg-transparent text-stone-400 border-stone-800 hover:border-stone-700 hover:text-stone-200'
-            }`}
-          >
-            London Visitors
-          </button>
-        </div>
+        <ScrollReveal distance={16} delay={150}>
+          <div className="flex items-center justify-center gap-2 pb-10 flex-wrap">
+            <button
+              onClick={() => setActiveCategory('all')}
+              className={`px-4 py-1.5 text-xs font-mono uppercase tracking-wider transition-all border ${
+                activeCategory === 'all'
+                  ? 'bg-stone-800 text-[#f5f2eb] border-[#c5a880]'
+                  : 'bg-transparent text-stone-400 border-stone-800 hover:border-stone-700 hover:text-stone-200'
+              }`}
+            >
+              All Reviews ({REVIEWS.length})
+            </button>
+            <button
+              onClick={() => setActiveCategory('ribeye')}
+              className={`px-4 py-1.5 text-xs font-mono uppercase tracking-wider transition-all border ${
+                activeCategory === 'ribeye'
+                  ? 'bg-stone-800 text-[#f5f2eb] border-[#c5a880]'
+                  : 'bg-transparent text-stone-400 border-stone-800 hover:border-stone-700 hover:text-stone-200'
+              }`}
+            >
+              Prime Ribeye
+            </button>
+            <button
+              onClick={() => setActiveCategory('sirloin')}
+              className={`px-4 py-1.5 text-xs font-mono uppercase tracking-wider transition-all border ${
+                activeCategory === 'sirloin'
+                  ? 'bg-stone-800 text-[#f5f2eb] border-[#c5a880]'
+                  : 'bg-transparent text-stone-400 border-stone-800 hover:border-stone-700 hover:text-stone-200'
+              }`}
+            >
+              Signature Sirloin
+            </button>
+            <button
+              onClick={() => setActiveCategory('london')}
+              className={`px-4 py-1.5 text-xs font-mono uppercase tracking-wider transition-all border ${
+                activeCategory === 'london'
+                  ? 'bg-stone-800 text-[#f5f2eb] border-[#c5a880]'
+                  : 'bg-transparent text-stone-400 border-stone-800 hover:border-stone-700 hover:text-stone-200'
+              }`}
+            >
+              London Visitors
+            </button>
+          </div>
+        </ScrollReveal>
 
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-          {filteredReviews.map(rev => (
-            <div
+          {filteredReviews.map((rev, idx) => (
+            <ScrollReveal
               key={rev.id}
-              className="bg-stone-950 border border-stone-800/80 hover:border-[#c5a880]/60 transition-all duration-300 flex flex-col justify-between group p-5 sm:p-7 relative"
+              delay={idx * 75}
+              distance={20}
+              interactiveGlow={true}
+              className="h-full"
             >
-              <div>
-                {/* Author Info Bar with Google icon */}
-                <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center font-mono text-xs font-bold text-white shadow-sm"
-                      style={{ backgroundColor: rev.avatarBg || '#c5a880' }}
+              <motion.div
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                className="bg-stone-950 border border-stone-800/80 hover:border-[#c5a880]/60 transition-colors duration-300 flex flex-col justify-between group p-5 sm:p-7 relative h-full"
+              >
+                <div>
+                  {/* Author Info Bar with Google icon */}
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-10 h-10 rounded-full flex items-center justify-center font-mono text-xs font-bold text-white shadow-sm"
+                        style={{ backgroundColor: rev.avatarBg || '#c5a880' }}
+                      >
+                        {rev.initials || rev.author.substring(0, 2).toUpperCase()}
+                      </div>
+                      <div>
+                        <div className="text-stone-100 font-medium text-sm flex items-center gap-1.5">
+                          <span>{rev.author}</span>
+                        </div>
+                        <div className="text-[11px] text-stone-500 font-light flex items-center gap-1">
+                          <span>{rev.badge || 'Verified Google Reviewer'}</span>
+                          {rev.date && (
+                            <>
+                              <span>·</span>
+                              <span>{rev.date}</span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Google G stamp */}
+                    <a
+                      href={BRAND_INFO.googleBusinessLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-1 hover:opacity-80 transition-opacity"
+                      title="View on Google"
                     >
-                      {rev.initials || rev.author.substring(0, 2).toUpperCase()}
-                    </div>
-                    <div>
-                      <div className="text-stone-100 font-medium text-sm flex items-center gap-1.5">
-                        <span>{rev.author}</span>
-                      </div>
-                      <div className="text-[11px] text-stone-500 font-light flex items-center gap-1">
-                        <span>{rev.badge || 'Verified Google Reviewer'}</span>
-                        {rev.date && (
-                          <>
-                            <span>·</span>
-                            <span>{rev.date}</span>
-                          </>
-                        )}
-                      </div>
-                    </div>
+                      <GoogleGIcon className="w-4 h-4 opacity-90" />
+                    </a>
                   </div>
 
-                  {/* Google G stamp */}
-                  <a
-                    href={BRAND_INFO.googleBusinessLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-1 hover:opacity-80 transition-opacity"
-                    title="View on Google"
-                  >
-                    <GoogleGIcon className="w-4 h-4 opacity-90" />
-                  </a>
-                </div>
-
-                {/* Star Rating & Order Tag */}
-                <div className="flex items-center justify-between mb-3.5">
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-[#f59e0b] text-[#f59e0b]" />
-                    ))}
+                  {/* Star Rating & Order Tag */}
+                  <div className="flex items-center justify-between mb-3.5">
+                    <div className="flex items-center gap-0.5">
+                      {[...Array(rev.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-[#f59e0b] text-[#f59e0b]" />
+                      ))}
+                    </div>
+                    {rev.orderType && (
+                      <span className="text-[10px] font-mono text-[#c5a880] tracking-wider uppercase">
+                        {rev.highlight}
+                      </span>
+                    )}
                   </div>
-                  {rev.orderType && (
-                    <span className="text-[10px] font-mono text-[#c5a880] tracking-wider uppercase">
-                      {rev.highlight}
-                    </span>
+
+                  {/* Review Quote Body */}
+                  <blockquote className="text-stone-300 text-xs sm:text-sm font-light italic leading-relaxed mb-4">
+                    "{rev.quote}"
+                  </blockquote>
+
+                  {/* Dish Recommendation Pill */}
+                  {rev.dishRecommended && (
+                    <div className="text-[11px] text-stone-400 font-light bg-stone-900/60 border border-stone-800/80 p-2.5 mb-4">
+                      <span className="text-stone-500 uppercase tracking-widest text-[9px] block font-mono">
+                        Recommended:
+                      </span>
+                      <span className="text-stone-300 italic">{rev.dishRecommended}</span>
+                    </div>
                   )}
                 </div>
 
-                {/* Review Quote Body */}
-                <blockquote className="text-stone-300 text-xs sm:text-sm font-light italic leading-relaxed mb-4">
-                  "{rev.quote}"
-                </blockquote>
-
-                {/* Dish Recommendation Pill */}
-                {rev.dishRecommended && (
-                  <div className="text-[11px] text-stone-400 font-light bg-stone-900/60 border border-stone-800/80 p-2.5 mb-4">
-                    <span className="text-stone-500 uppercase tracking-widest text-[9px] block font-mono">
-                      Recommended:
-                    </span>
-                    <span className="text-stone-300 italic">{rev.dishRecommended}</span>
+                {/* Bottom Card Footer with Optional Screenshot Preview */}
+                <div className="pt-4 border-t border-stone-900 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-1.5 text-[11px] text-stone-500 font-mono">
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                    <span>Verified Google Review</span>
                   </div>
-                )}
-              </div>
 
-              {/* Bottom Card Footer with Optional Screenshot Preview */}
-              <div className="pt-4 border-t border-stone-900 flex items-center justify-between text-xs">
-                <div className="flex items-center gap-1.5 text-[11px] text-stone-500 font-mono">
-                  <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                  <span>Verified Google Review</span>
+                  {rev.image && (
+                    <button
+                      onClick={() => setActiveReviewModal(rev)}
+                      className="text-[11px] text-[#c5a880] hover:text-white flex items-center gap-1 font-mono uppercase tracking-wider transition-colors"
+                    >
+                      <ZoomIn className="w-3 h-3" />
+                      <span>View Note</span>
+                    </button>
+                  )}
                 </div>
-
-                {rev.image && (
-                  <button
-                    onClick={() => setActiveReviewModal(rev)}
-                    className="text-[11px] text-[#c5a880] hover:text-white flex items-center gap-1 font-mono uppercase tracking-wider transition-colors"
-                  >
-                    <ZoomIn className="w-3 h-3" />
-                    <span>View Note</span>
-                  </button>
-                )}
-              </div>
-            </div>
+              </motion.div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* Bottom Callout: Leave a Google Review */}
-        <div className="mt-16 p-8 bg-stone-950/80 border border-stone-800 text-center max-w-2xl mx-auto space-y-4">
-          <div className="flex items-center justify-center gap-2">
-            <GoogleGIcon className="w-5 h-5" />
-            <span className="font-serif text-lg text-stone-200">
-              Tried our Steakholders weekend box?
-            </span>
+        <ScrollReveal delay={120} distance={20}>
+          <div className="mt-16 p-8 bg-stone-950/80 border border-stone-800 text-center max-w-2xl mx-auto space-y-4">
+            <div className="flex items-center justify-center gap-2">
+              <GoogleGIcon className="w-5 h-5" />
+              <span className="font-serif text-lg text-stone-200">
+                Tried our Steakholders weekend box?
+              </span>
+            </div>
+            <p className="text-xs text-stone-400 font-light max-w-lg mx-auto">
+              Your reviews help our family-run kitchen continue sourcing the finest Angus HMC beef in the UK. We read every single comment.
+            </p>
+            <div className="pt-2">
+              <a
+                href={BRAND_INFO.googleBusinessLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-stone-900 hover:bg-stone-800 text-stone-200 border border-stone-700 text-xs font-mono uppercase tracking-widest transition-colors"
+              >
+                <span>Write a Google Review</span>
+                <ExternalLink className="w-3 h-3 text-[#c5a880]" />
+              </a>
+            </div>
           </div>
-          <p className="text-xs text-stone-400 font-light max-w-lg mx-auto">
-            Your reviews help our family-run kitchen continue sourcing the finest Angus HMC beef in the UK. We read every single comment.
-          </p>
-          <div className="pt-2">
-            <a
-              href={BRAND_INFO.googleBusinessLink}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-stone-900 hover:bg-stone-800 text-stone-200 border border-stone-700 text-xs font-mono uppercase tracking-widest transition-colors"
-            >
-              <span>Write a Google Review</span>
-              <ExternalLink className="w-3 h-3 text-[#c5a880]" />
-            </a>
-          </div>
-        </div>
+        </ScrollReveal>
 
         {/* Lightbox / Zoom Modal */}
         {activeReviewModal && (

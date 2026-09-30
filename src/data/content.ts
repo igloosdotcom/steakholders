@@ -41,6 +41,32 @@ export const MENU_ITEMS: MenuItem[] = [
     ]
   },
   {
+    id: 'box-secret',
+    name: "The Mystery Box · Chef's Secret",
+    badge: "Chef's Secret",
+    cutType: 'sirloin',
+    description: "An off-menu weekend reservation secret. Hover to break the culinary seal and reveal the kitchen's private dry-aged cut.",
+    price: 22.00,
+    image: '/src/assets/images/chefs_secret_cut_1790668214014.jpg',
+    details: [
+      'Classified Dry-Aged Cut (240g)',
+      'Whipped Bone Marrow & Smoked Shallot Butter',
+      'Double-Dredged Golden Maldon Chips',
+      'Strictly 20 portions prepped per weekend drop'
+    ],
+    isMystery: true,
+    secretName: '35-Day Salt-Aged Picanha & Bone Marrow Medallions',
+    secretBadge: 'Off-Menu Cut Unlocked',
+    secretDescription: 'Exclusive 35-day Himalayan salt-aged British Angus Picanha with thick golden fat cap, seared rare-to-medium-rare on screaming cast iron, basted with whipped bone marrow butter, black garlic chimichurri, and house smoked crunch.',
+    secretDetails: [
+      '35-Day Salt-Aged Angus Picanha (240g)',
+      'Whipped Bone Marrow & Smoked Shallot Butter',
+      'Black Garlic & Wild Oregano Chimichurri',
+      'House Smoked Shallot Crunch Garnish'
+    ],
+    secretImage: '/src/assets/images/chefs_secret_cut_1790668214014.jpg'
+  },
+  {
     id: 'box-ribeye',
     name: 'Prime Ribeye Experience Box',
     badge: 'Chef Upgrade',

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize2, Instagram, ExternalLink } from 'lucide-react';
 import { VIDEOS, BRAND_INFO } from '../data/content';
+import ScrollReveal from './ScrollReveal';
 
 interface VideoExperienceProps {
   onOpenReserve: () => void;
@@ -48,27 +49,30 @@ export default function VideoExperience({ onOpenReserve }: VideoExperienceProps)
   };
 
   return (
-    <section id="experience" className="py-16 sm:py-24 bg-[#09090a] relative border-t border-stone-900">
+    <section id="experience" className="py-16 sm:py-24 bg-[#09090a] relative border-t border-stone-900 scroll-mt-20">
+      <div id="sensory-craft" className="absolute -top-24 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
-          <div className="flex items-center justify-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
-            <span>02</span>
-            <span className="w-6 h-[1px] bg-[#c5a880]/60" />
-            <span>Sensory Craft</span>
+        <ScrollReveal distance={20}>
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+            <div className="flex items-center justify-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#c5a880] font-medium">
+              <span>02</span>
+              <span className="w-6 h-[1px] bg-[#c5a880]/60" />
+              <span>Sensory Craft</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
+              The Sizzle &amp; The Pour
+            </h2>
+            <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+              High heat sear, aromatic butter baste, and a shower of house chimichurri. Watch our weekend craft straight from the iron.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
-            The Sizzle &amp; The Pour
-          </h2>
-          <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
-            High heat sear, aromatic butter baste, and a shower of house chimichurri. Watch our weekend craft straight from the iron.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Video Player & Showcase Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-5xl mx-auto">
           {/* Main Video Frame */}
-          <div className="lg:col-span-7 flex justify-center">
+          <ScrollReveal scale={0.96} distance={28} duration={800} className="lg:col-span-7 flex justify-center">
             <div className="relative w-full max-w-[320px] sm:max-w-[360px] aspect-[9/16] bg-black border border-stone-800 overflow-hidden shadow-2xl">
               {activeVideo.isInstagram ? (
                 <div className="relative w-full h-full bg-black flex flex-col">
@@ -161,10 +165,10 @@ export default function VideoExperience({ onOpenReserve }: VideoExperienceProps)
                 </>
               )}
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Video Selector & Culinary Notes */}
-          <div className="lg:col-span-5 space-y-6">
+          <ScrollReveal direction="left" distance={28} delay={180} className="lg:col-span-5 space-y-6">
             <div className="space-y-3">
               <span className="text-[10px] uppercase tracking-[0.25em] text-stone-500 font-mono block">
                 Select Viewpoint
@@ -218,7 +222,7 @@ export default function VideoExperience({ onOpenReserve }: VideoExperienceProps)
                 </button>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
