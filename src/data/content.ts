@@ -2,6 +2,7 @@ import { MenuItem, ButcherCut, ReviewItem, VideoItem } from '../types/steakholde
 
 export const BRAND_INFO = {
   name: 'Steakholders',
+  version: '1.0.1',
   tagline: 'The people’s Steak-away',
   badge: 'Specialist Steak & Chips',
   story: 'Established in London, now in Birmingham. We serve some of the best reviewed steak & chips meals in the UK. Specialist Steak & Chips — cooked, assembled and served with love. A family-run business.',
@@ -39,32 +40,6 @@ export const MENU_ITEMS: MenuItem[] = [
       'Freshly whisked herb chimichurri drizzle',
       'Signature secret Steakholders Garnish topping'
     ]
-  },
-  {
-    id: 'box-secret',
-    name: "The Mystery Box · Chef's Secret",
-    badge: "Chef's Secret",
-    cutType: 'sirloin',
-    description: "An off-menu weekend reservation secret. Hover to break the culinary seal and reveal the kitchen's private dry-aged cut.",
-    price: 22.00,
-    image: '/src/assets/images/chefs_secret_cut_1790668214014.jpg',
-    details: [
-      'Classified Dry-Aged Cut (240g)',
-      'Whipped Bone Marrow & Smoked Shallot Butter',
-      'Double-Dredged Golden Maldon Chips',
-      'Strictly 20 portions prepped per weekend drop'
-    ],
-    isMystery: true,
-    secretName: '35-Day Salt-Aged Picanha & Bone Marrow Medallions',
-    secretBadge: 'Off-Menu Cut Unlocked',
-    secretDescription: 'Exclusive 35-day Himalayan salt-aged British Angus Picanha with thick golden fat cap, seared rare-to-medium-rare on screaming cast iron, basted with whipped bone marrow butter, black garlic chimichurri, and house smoked crunch.',
-    secretDetails: [
-      '35-Day Salt-Aged Angus Picanha (240g)',
-      'Whipped Bone Marrow & Smoked Shallot Butter',
-      'Black Garlic & Wild Oregano Chimichurri',
-      'House Smoked Shallot Crunch Garnish'
-    ],
-    secretImage: '/src/assets/images/chefs_secret_cut_1790668214014.jpg'
   },
   {
     id: 'box-ribeye',
