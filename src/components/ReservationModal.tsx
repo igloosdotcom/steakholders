@@ -1,3 +1,6 @@
+/**
+ * Steakholders Reservation & Ordering Modal
+ */
 import { useState, useEffect } from 'react';
 import {
   X,
@@ -14,7 +17,6 @@ import {
 } from 'lucide-react';
 import { BRAND_INFO, MENU_ITEMS } from '../data/content';
 import { MenuItem } from '../types/steakholders';
-import { addStoredOrder } from '../data/ordersStore';
 
 interface ReservationModalProps {
   isOpen: boolean;
@@ -80,30 +82,6 @@ export default function ReservationModal({
     const newRef = `SH-${Math.floor(1000 + Math.random() * 9000)}`;
     setOrderRef(newRef);
     setIsSubmitted(true);
-
-    // Save into centralized orders store
-    addStoredOrder({
-      id: newRef,
-      createdAt: new Date().toISOString(),
-      guestName: guestName.trim() || 'Guest Diner',
-      guestPhone: guestPhone.trim() || '07700 900123',
-      guestEmail: guestEmail.trim() || undefined,
-      day,
-      timeSlot,
-      status: 'confirmed',
-      doneness,
-      sauce,
-      specialNotes: specialNotes.trim() || undefined,
-      items: selectedItems.map(si => ({
-        id: si.item.id,
-        name: si.item.name,
-        cutType: si.item.cutType,
-        quantity: si.quantity,
-        unitPrice: si.item.price
-      })),
-      subtotal,
-      paymentMethod: 'Collection Payment'
-    });
   };
 
   const handleCopyRef = () => {
