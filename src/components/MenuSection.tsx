@@ -39,9 +39,6 @@ export default function MenuSection({ onSelectItem, onOpenReserve }: MenuSection
                 <span>03</span>
                 <span className="w-6 h-[1px] bg-[#c5a880]/60" />
                 <span>Weekend Carte</span>
-                <span className="ml-2 px-2 py-0.5 bg-[#c5a880]/10 border border-[#c5a880]/30 text-[9px] tracking-widest font-mono text-[#c5a880]">
-                  • Live Drop Active
-                </span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-serif font-light text-[#f5f2eb] tracking-tight">
                 The Steak &amp; Chips Selection
